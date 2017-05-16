@@ -1,5 +1,7 @@
-import counter from './counter';
+import counter from './counterReducer';
+import todoList from './todoReducer';
 
 export {
-  counter
+  counter,
+  todoList
 };

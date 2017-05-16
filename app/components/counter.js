@@ -23,6 +23,8 @@ export default class Counter extends Component {
 
     return (
       <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+        <Text style={{ fontSize : 29, marginBottom : 20,  backgroundColor: 'lightgray'}}>Counter app</Text>
+
         <Text style={{ fontSize : 29, marginBottom : 50,  backgroundColor: 'lightgray'}}>{counter}</Text>
         <TouchableOpacity onPress={increment} style={styles.button}>
           <Text>Up</Text>

@@ -11,3 +11,9 @@ export function decrement() {
     type: types.DECREMENT
   };
 }
+
+export function addtodo(text) {
+	return {
+		type: types.ADD_TODO, text
+	};
+}
