@@ -5,7 +5,9 @@ import thunk from 'redux-thunk';
 
 import * as reducers from '../reducers';
 import CounterApp from './counterApp';
-import TodoApp from './todoApp';
+//import ToDoApp from './todoApp';
+
+import TodoList from '../components/todoList';
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 const reducer = combineReducers(reducers);
@@ -15,7 +17,7 @@ export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <CounterApp />
+        <TodoList />
       </Provider>
     );
   }
