@@ -1,5 +1,3 @@
-'use strict';
-
 import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import Counter from '../components/counter';

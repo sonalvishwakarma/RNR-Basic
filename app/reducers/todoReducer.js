@@ -7,6 +7,8 @@ import * as types from '../actions/actionTypes';
 export default function todoReducer(state = initialState, action = {}) {
   switch (action.type) {
     case types.ADD_TODO:
+     const newId = Object.keys(todoList).length;
+        todoList[`todo${newId}`] = action.item
       return {
         ...state,
         todoList: state.todoList
@@ -17,11 +19,11 @@ export default function todoReducer(state = initialState, action = {}) {
   }*/}
 
 
-export default function todoReducer(state={ todoList: {} }, action ) {
+export default function todoReducer(state={ todoList: [] }, action) {
     const todoList = { ...state.todoList };
     switch(action.type) {
     case types.ADD_TODO:
-        const newId = Object.keys(todoList).length;
+        const newId = todoList.length;
         todoList[`todo${newId}`] = action.item
       return { ...state, todoList };          
     case types.REMOVE_TODO:

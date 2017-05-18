@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { ScrollView, View, Text, TouchableHighlight } from 'react-native';
 import { connect } from 'react-redux';
-
 import {  removeFromTodoList }  from '../actions/counterActions';
+import Lists from '../components/lists';
+import { todoReducer } from '../reducers/todoReducer';
 
-mapStateToProps = (state) => ({ todoList: state.todoReducer.todoList });
+mapStateToProps = (state) => ({ todoList: state.todoList });
 
 mapDispatchToProps = (dispatch) => ({
   removeTodoItem: (todoItem) => {
@@ -18,9 +19,10 @@ class TodoList extends Component {
     return (
       <ScrollView>
         <View style={styles.container}>
+           <Lists/>
             <Text style={styles.heading}>To Do</Text>
             { 
-              Object.keys(todoList).map((itemId) => {
+              todoList.map((itemId) => {
                 return (
                   <TouchableHighlight key={itemId} onPress={() => {removeTodoItem(itemId)}}>
                     <Text>{ todoList[itemId] }</Text>
