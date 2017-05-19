@@ -12,14 +12,3 @@ export function decrement() {
   };
 }
 
-export function addToTodoList(item) {
-	return {
-		type: types.ADD_TODO, item
-	};
-}
-
-export function removeFromTodoList (id) {
-  return { 
-  	type: types.REMOVE_TODO, id
-  };
-}

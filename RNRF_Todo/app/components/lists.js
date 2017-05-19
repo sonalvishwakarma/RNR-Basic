@@ -1,30 +1,32 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { View, Text, TextInput, TouchableHighlight } from 'react-native';
 import { connect } from 'react-redux';
-import {  addToTodoList }  from '../actions/counterActions';
+import { Actions } from 'react-native-router-flux';
+
+import {  addToTodoList } from '../actions';
 
 mapStateToProps = (state) => state;
 
 mapDispatchToProps = (dispatch) => ({
   addTodoItem: (todoItem) => {
     dispatch(addToTodoList(todoItem));
+    alert('added to todoList')
   },
 });
 
 class Lists extends Component {
   state = {
-    todoItem: ''
+    todoItem: '',
   }
   render() {
-    const { addTodoItem} = this.props;
+    const { addTodoItem } = this.props;
     const { todoItem } = this.state;
-    return
-    (
+    return(
       <View style={styles.container}>
         <TextInput style={styles.textInput} placeholder="Add todo item" onChangeText={(text) => this.setState({todoItem: text})} />                
         <TouchableHighlight style={styles.button} onPress={() => { addTodoItem(todoItem); }}>
           <Text style={styles.buttonText}>Add Todo</Text>
-         </TouchableHighlight>
+        </TouchableHighlight>
       </View>
     );
   }
@@ -37,7 +39,7 @@ const styles = {
     marginTop: 80,
     flex: 1,
     flexDirection: 'column',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     maxHeight: 400,
     alignItems: 'center',
   },
@@ -48,7 +50,7 @@ const styles = {
     padding: 5,
     borderWidth: 1,
     borderRadius: 5,
-    backgroundColor: 'black',
+    backgroundColor: 'green'
   },
   buttonText: {
     color: 'white',
